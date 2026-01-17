@@ -1,16 +1,16 @@
 class Plants:
     name: str
     height: int
-    age: int
+    days: int
 
-    def __init__(self, name, height, age):
+    def __init__(self, name, height, days):
         self.name = name
         self.height = height
-        self.age = age
+        self.days = days
 
     def print_plant(self):
         print(self.name.capitalize() + ":", self.height, end="")
-        print("cm,", self.age, "days old")
+        print("cm,", self.days, "days old")
 
 
 if __name__ == "__main__":

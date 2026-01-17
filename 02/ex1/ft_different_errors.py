@@ -10,7 +10,7 @@ def garden_operations(case: str) -> None:
         dic["a"]
 
 
-def test_error_types():
+def test_error_types() -> None:
     try:
         garden_operations("ValueError")
     except ValueError:
