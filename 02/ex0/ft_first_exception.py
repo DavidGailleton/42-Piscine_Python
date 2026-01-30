@@ -1,5 +1,5 @@
-def check_temperature(temp_str: str) -> int:
-    print("Testing temperature:", temp_str)
+def check_temperature(temp_str: str) -> int | None:
+    """Test if temperature is correct"""
     try:
         x = int(temp_str)
         if x > 40:
@@ -8,20 +8,21 @@ def check_temperature(temp_str: str) -> int:
             raise Exception("is too cold for plants (min 0°C)")
         else:
             print("Temperature " + temp_str + "°C is perfect for plants!")
+            return x
     except ValueError:
         print("Error: '" + temp_str + "' is not a valid number")
-        pass
     except Exception as ex:
         print("Error: " + temp_str + "°C", ex)
-        pass
+    return (None)
 
 if __name__ == "__main__":
+    print("=== Garden Temperature checker ===")
+    print("\nTesting temperature: 25")
     check_temperature("25")
-    print("")
+    print("\nTesting temperature: abc")
     check_temperature("abc")
-    print("")
+    print("\nTesting temperature: 100")
     check_temperature("100")
-    print("")
+    print("\nTesting temperature: -50")
     check_temperature("-50")
-    print("")
-    print("All tests completed - program didn't crash!")
+    print("\nAll tests completed - program didn't crash!")
