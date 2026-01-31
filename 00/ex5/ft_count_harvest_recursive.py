@@ -1,4 +1,4 @@
-def ft_count_harvest_recursive(x=-1):
+def ft_count_harvest_recursive(x: int = -1):
     if x < 0:
         print("Days until harvest:", end=" ")
         x = int(input())
