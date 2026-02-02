@@ -1,7 +1,7 @@
 def water_plants(plant_list: list[str | None]) -> None:
     """Display watering plant if plant is a string"""
     for plant in plant_list:
-        if plant == None:
+        if not plant:
             raise ValueError
         print("Watering", plant)
 
@@ -14,7 +14,7 @@ def test_watering_system() -> None:
     try:
         print("Opening watering system")
         water_plants(plants)
-    except:
+    except ValueError:
         print("Error: Cannot water None - invalid plant!")
     finally:
         print("Closing watering system (cleanup)")

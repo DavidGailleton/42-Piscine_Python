@@ -15,6 +15,7 @@ def check_temperature(temp_str: str) -> int | None:
         print("Error: " + temp_str + "°C", ex)
     return (None)
 
+
 if __name__ == "__main__":
     print("=== Garden Temperature checker ===")
     print("\nTesting temperature: 25")

@@ -8,7 +8,7 @@ class GardenError(Exception):
 
     @override
     def __str__(self) -> str:
-        return f"Caught a garden error: {self.message}" 
+        return f"Caught a garden error: {self.message}"
 
 
 class PlantError(GardenError):
@@ -17,7 +17,7 @@ class PlantError(GardenError):
 
     @override
     def __str__(self) -> str:
-        return f"Caught PlantError: {self.message}" 
+        return f"Caught PlantError: {self.message}"
 
 
 class WaterError(GardenError):
@@ -26,7 +26,7 @@ class WaterError(GardenError):
 
     @override
     def __str__(self) -> str:
-        return f"Caught WaterError: {self.message}" 
+        return f"Caught WaterError: {self.message}"
 
 
 if __name__ == "__main__":
