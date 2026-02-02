@@ -4,19 +4,7 @@ import sys
 
 def print_distance(a: tuple[int, int, int], b: tuple[int, int, int]) -> None:
     distance = math.sqrt((a[0]-b[0])**2+(a[1]-b[1])**2+(a[2]-b[2])**2)
-    print("Distance between (", end="")
-    print(a[0], end="")
-    print(", ", end="")
-    print(a[1], end="")
-    print(", ", end="")
-    print(a[2], end="")
-    print(") and (", end="")
-    print(b[0], end="")
-    print(", ", end="")
-    print(b[1], end="")
-    print(", ", end="")
-    print(b[2], end="")
-    print("):", distance)
+    print(f"Distance between: {a} and {b}: {distance}")
 
 
 if __name__ == "__main__":
@@ -32,8 +20,7 @@ if __name__ == "__main__":
         print("Parsing coordinates:", args[1])
         print_distance((0, 0, 0), int_args)
     except ValueError as err:
-        print("Parsing invalid coordinates: \"", end="")
-        print(argv[1], end="\"\n")
+        print(f"Parsing invalid coordinates: \"{argv[1]}\"")
         print(err)
     except Exception as err:
         print(err)

@@ -11,14 +11,7 @@ if __name__ == "__main__":
             while i < len(args) - 1:
                 scores[i] = int(args[i + 1])
                 i = i + 1
-            print("Scores processed: [", end="")
-            i = 0
-            while i < len(scores):
-                print(scores[i], end="")
-                if not i == len(scores) - 1:
-                    print(", ", end="")
-                i = i + 1
-            print("]")
+            print("Scores processed:", scores)
             print("Total players:", len(scores))
             print("Total score:", sum(scores))
             print("Average score:", sum(scores) / len(scores))
