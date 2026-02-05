@@ -3,7 +3,8 @@ import sys
 if __name__ == "__main__":
     args = sys.argv
     if len(args) <= 1:
-        print("No scores provided. Usage: python3 ft_score_analytics.py <score1> <score2> ...")
+        print("No scores provided. Usage: python3\
+ ft_score_analytics.py <score1> <score2> ...")
     else:
         scores = [0] * (len(args) - 1)
         i = 0

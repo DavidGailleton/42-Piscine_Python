@@ -8,23 +8,35 @@ def tracker_system(players: dict[str, list[str]]) -> None:
         unique_achievements = unique_achievements | set((players[player]))
     print(f"All unique achievements: {unique_achievements}")
     print(f"Total unique achievements: {len(unique_achievements)}")
-    common_achievements: set[str] = unique_achievements.intersection(players)
+    common_achievements: set[str] = unique_achievements
+    for player in players:
+        common_achievements = common_achievements & set((players[player]))
     print(f"\nCommon to all players: {common_achievements}")
-    rare_achievements: set[str] = set(())
+    player_rare: dict[str, set[str]] = {}
     for player in players:
         temp = set((players[player]))
         for other in players:
             if other != player:
                 temp = temp - set((players[other]))
-        rare_achievements = rare_achievements & temp
+        player_rare[player] = temp
+    rare_achievements: set[str] = set(())
+    for n in player_rare:
+        rare_achievements = rare_achievements | player_rare[n]
     print(f"Rare achievements (1 player): {rare_achievements}\n")
+    a_vs_b_common = set((players["Alice"])) & set((players["Bob"]))
+    print(f"Alice vs Bob common: {a_vs_b_common}")
+    alice_unique = set((players["Alice"])) - set((players["Bob"]))
+    print(f"Alice unique: {alice_unique}")
+    bob_unique = set((players["Bob"])) - set((players["Alice"]))
+    print(f"Bob unique: {bob_unique}")
 
 
 if __name__ == "__main__":
     players = {
-            "Alice": ['first_kill', 'level_10', 'treasure_hunter', 'speed_demon'],
+            "Alice": ['first_kill', 'level_10',
+                      'treasure_hunter', 'speed_demon'],
             "Bob": ['first_kill', 'level_10', 'boss_slayer', 'collector'],
-            "Charlie": ['level_10', 'treasure_hunter', 'boss_slayer', 'speed_demon', 'perfectionist']
+            "Charlie": ['level_10', 'treasure_hunter', 'boss_slayer',
+                        'speed_demon', 'perfectionist']
     }
-#    players = {'alice': ['first_blood', 'pixel_p:unique_achievementserfect', 'speed_runner', 'first_blood', 'first_blood'], 'bob': ['level_master', 'boss_hunter', 'treasure_seeker', 'level_master', 'level_master'], 'charlie': ['treasure_seeker', 'boss_hunter', 'combo_king', 'first_blood', 'boss_hunter', 'first_blood', 'boss_hunter', 'first_blood'], 'diana': ['first_blood', 'combo_king', 'level_master', 'treasure_seeker', 'speed_runner', 'combo_king', 'combo_king', 'level_master'], 'eve': ['level_master', 'treasure_seeker', 'first_blood', 'treasure_seeker', 'first_blood', 'treasure_seeker'], 'frank': ['explorer', 'boss_hunter', 'first_blood', 'explorer', 'first_blood', 'boss_hunter']}
     tracker_system(players)
