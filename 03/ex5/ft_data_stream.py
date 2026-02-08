@@ -52,8 +52,8 @@ def game_data_stream_processor(
 ) -> None:
     print("=== Game Data Stream Processor ===\n")
     print(f"Processing {len(events)} game events...\n")
-    log = event_analytics(events)
     try:
+        log = event_analytics(events)
         while True:
             next(log)
     except StopIteration as res:
