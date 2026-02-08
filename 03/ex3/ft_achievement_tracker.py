@@ -33,10 +33,14 @@ def tracker_system(players: dict[str, list[str]]) -> None:
 
 if __name__ == "__main__":
     players = {
-            "Alice": ['first_kill', 'level_10',
-                      'treasure_hunter', 'speed_demon'],
-            "Bob": ['first_kill', 'level_10', 'boss_slayer', 'collector'],
-            "Charlie": ['level_10', 'treasure_hunter', 'boss_slayer',
-                        'speed_demon', 'perfectionist']
+        "Alice": ["first_kill", "level_10", "treasure_hunter", "speed_demon"],
+        "Bob": ["first_kill", "level_10", "boss_slayer", "collector"],
+        "Charlie": [
+            "level_10",
+            "treasure_hunter",
+            "boss_slayer",
+            "speed_demon",
+            "perfectionist",
+        ],
     }
     tracker_system(players)
