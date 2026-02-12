@@ -70,14 +70,14 @@ def game_data_stream_processor(
 
 def generator_demo() -> None:
     print("=== Generator Demonstration ===")
-    print("Fibonacci sequence (first 10): ", end="")
+    print("Fibonacci sequence (first 10):", end="")
     fib = fibonacci()
     for _ in range(10):
-        print(f"{next(fib)} ", end="")
-    print("\nPrime number (first 5): ", end="")
+        print(f" {next(fib)}", end="")
+    print("\nPrime number (first 5):", end="")
     prime = prime_number()
     for _ in range(5):
-        print(f"{next(prime)} ", end="")
+        print(f" {next(prime)}", end="")
     print("")
 
 

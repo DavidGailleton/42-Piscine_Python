@@ -83,10 +83,19 @@ def comprehension_tester(
     try:
         print("=== game Analytics Dashboard ===\n")
         list_comprehension_example(data)
+    except Exception as err:
+        print(err)
+    try:
         print()
         dict_comprehension_example(data)
+    except Exception as err:
+        print(err)
+    try:
         print()
         set_comprehension_example(data)
+    except Exception as err:
+        print(err)
+    try:
         print()
         combined_analysis(data)
     except Exception as err:

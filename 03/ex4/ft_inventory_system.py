@@ -72,19 +72,22 @@ def dictionnary_properties_demo(inventory: dict[str, int]) -> None:
 def inventory_report(inventory: dict[str, int]) -> None:
     nb_unique_items = len(inventory)
     nb_item_in_inventory = 0
-    for n in inventory:
-        nb_item_in_inventory += inventory[n]
-    if nb_item_in_inventory == 0:
-        print("Inventory is empty")
-    else:
-        print("=== Inventory System Analysis ===")
-        print(f"Total items in inventory: {nb_item_in_inventory}")
-        print(f"Unique item types: {nb_unique_items}")
-        current_inventory(inventory, nb_item_in_inventory)
-        inventory_statistics(inventory)
-        item_categories(inventory)
-        management_suggestions(inventory)
-        dictionnary_properties_demo(inventory)
+    try:
+        for n in inventory:
+            nb_item_in_inventory += inventory[n]
+        if nb_item_in_inventory == 0:
+            print("Inventory is empty")
+        else:
+            print("=== Inventory System Analysis ===")
+            print(f"Total items in inventory: {nb_item_in_inventory}")
+            print(f"Unique item types: {nb_unique_items}")
+            current_inventory(inventory, nb_item_in_inventory)
+            inventory_statistics(inventory)
+            item_categories(inventory)
+            management_suggestions(inventory)
+            dictionnary_properties_demo(inventory)
+    except Exception as err:
+        print(err)
 
 
 def main(argv: list[str]) -> None:
