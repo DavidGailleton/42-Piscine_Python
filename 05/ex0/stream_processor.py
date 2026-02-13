@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Any
+from typing import Any, Union
 from typing_extensions import override
 
 
@@ -111,8 +111,8 @@ class LogProcessor(DataProcessor):
 def class_tester() -> None:
     print("=== CODE NEXUS - DATA PROCESSOR FOUNDATION ===\n")
     print("Initializing Numeric Processor...")
-    data = [1, 2, 3, 4, 5]
-    processor = NumericProcessor()
+    data: Union[list[int | str], str] = [1, 2, 3, 4, 5]
+    processor: DataProcessor = NumericProcessor()
     res = processor.process(data)
     is_valid = processor.validate(data)
     formatted_output = processor.format_output(res)
