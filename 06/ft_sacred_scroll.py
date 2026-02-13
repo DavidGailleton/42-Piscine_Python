@@ -1,0 +1,32 @@
+def main() -> None:
+    import alchemy
+
+    print("=== Sacred Scroll Mastery ===\n")
+    print("Testing direct module access:")
+    print(f"alchemy.elements.create_fire(): {alchemy.elements.create_fire()}")
+    print(
+        f"alchemy.elements.create_water(): {alchemy.elements.create_water()}"
+    )
+    print(
+        f"alchemy.elements.create_earth(): {alchemy.elements.create_earth()}"
+    )
+    print(f"alchemy.elements.create_air(): {alchemy.elements.create_air()}")
+    print("\nTesting package-level access (controlled by __init__.py):")
+    print(f"alchemy.create_fire(): {alchemy.create_fire()}")
+    print(f"alchemy.create_water(): {alchemy.create_water()}")
+
+    print("alchemy.create_earth(): ", end="")
+    try:
+        print(f"{alchemy.create_earth()}")
+    except AttributeError:
+        print("AttributeError - not exposed")
+
+    print("alchemy.create_air(): ", end="")
+    try:
+        print(f"{alchemy.create_air()}")
+    except AttributeError:
+        print("AttributeError - not exposed")
+
+
+if __name__ == "__main__":
+    main()
