@@ -2,8 +2,8 @@ import sys
 
 
 def communication_system() -> None:
-    print("=== CYBER ARCHIVES - COMMUNICATION SYSTEM ===")
-    sys.stdout.write("\nInput Stream active. Enter archivist ID: ")
+    print("=== CYBER ARCHIVES - COMMUNICATION SYSTEM ===\n")
+    sys.stdout.write("Input Stream active. Enter archivist ID: ")
     archivist_id = input()
     sys.stdout.write("Input Stream active. Enter status report: ")
     status_report = input()

@@ -9,6 +9,8 @@ def read_ancient_text() -> None:
         print("\nData recovery complete. Storage unit disconnected.")
     except FileNotFoundError:
         print("ERROR: Storage vault not found.")
+    except Exception as err:
+        print(err)
 
 
 if __name__ == "__main__":
