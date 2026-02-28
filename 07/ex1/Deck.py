@@ -1,4 +1,4 @@
-from ex0.Card import Card
+from ex0 import Card, CreatureCard
 
 
 class Deck:
@@ -16,10 +16,32 @@ class Deck:
         print("{card_name} not found")
 
     def shuffle(self) -> None:
-        pass
+        from random import shuffle
+
+        shuffle(self.cards)
 
     def draw_card(self) -> Card:
         pass
 
     def get_deck_stats(self) -> dict:
-        pass
+        from . import ArtifactCard, SpellCard
+
+        creatures = 0
+        spells = 0
+        artifacts = 0
+        total_cost = 0.0
+        for card in self.cards:
+            if isinstance(card, CreatureCard):
+                creatures += 1
+            elif isinstance(card, ArtifactCard):
+                artifacts += 1
+            elif isinstance(card, SpellCard):
+                spells += 1
+            total_cost += card.cost
+        return {
+            "total_card": len(self.cards),
+            "creatures": creatures,
+            "spells": spells,
+            "artifacts": artifacts,
+            "avg_cost": total_cost / len(self.cards),
+        }
