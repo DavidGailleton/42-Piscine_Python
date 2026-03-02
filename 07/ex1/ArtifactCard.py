@@ -1,4 +1,4 @@
-from ex0.Card import Card
+from ex0 import Card
 from typing import Union
 
 
@@ -24,4 +24,11 @@ class ArtifactCard(Card):
             return {}
 
     def activate_ability(self) -> dict:
-        pass
+        if self.durability <= 0:
+            return {
+                "name": self.name,
+                "durability": self.durability,
+                "destroyed": True,
+            }
+        self.durability -= 1
+        return self.get_card_info()

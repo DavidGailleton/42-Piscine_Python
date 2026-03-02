@@ -21,10 +21,12 @@ class Deck:
         shuffle(self.cards)
 
     def draw_card(self) -> Card:
-        pass
+        self.shuffle()
+        return self.cards.pop()
 
     def get_deck_stats(self) -> dict:
-        from . import ArtifactCard, SpellCard
+        from .ArtifactCard import ArtifactCard
+        from .SpellCard import SpellCard
 
         creatures = 0
         spells = 0

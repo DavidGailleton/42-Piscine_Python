@@ -1,4 +1,4 @@
-from ex0.Card import Card
+from ex0 import Card
 from typing import Union
 
 
@@ -10,7 +10,7 @@ class SpellCard(Card):
         self.effect_type = effect_type
 
     def play(self, game_state: dict) -> dict:
-         try:
+        try:
             res: dict[str, Union[int, str]] = {}
             if game_state["mana"] < 3:
                 raise Exception("Not enough mana")
@@ -22,5 +22,5 @@ class SpellCard(Card):
             print(err)
             return {}
 
-   def resolve_effect(self, targets: list) -> dict:
-        pass
+    def resolve_effect(self, targets: list) -> dict:
+        return {"card": self.name, "targets": targets, "resolved": True}
