@@ -8,7 +8,7 @@ def main():
     deck = Deck()
     print("Building deck with different card types...")
     deck.add_card(
-        SpellCard("Lightning Bolt", 5, "Common", "Deal 3 dammage to target")
+        SpellCard("Lightning Bolt", 5, "Common", "Deal 3 dammage to target", 5)
     )
     deck.add_card(
         ArtifactCard(
