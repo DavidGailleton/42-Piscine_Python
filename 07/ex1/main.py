@@ -1,4 +1,4 @@
-def main():
+def main() -> None:
     from .Deck import Deck
     from .SpellCard import SpellCard
     from .ArtifactCard import ArtifactCard

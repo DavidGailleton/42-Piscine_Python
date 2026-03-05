@@ -16,6 +16,4 @@ class Card(ABC):
         return res
 
     def is_playable(self, available_mana: int) -> bool:
-        if available_mana > 5:
-            return True
-        return False
+        return available_mana > 5

@@ -1,4 +1,4 @@
-def main():
+def main() -> None:
     from .EliteCard import EliteCard
 
     print("=== DataDeck Ability System ===\n")
