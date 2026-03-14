@@ -1,6 +1,6 @@
 from enum import Enum
 from typing_extensions import Self
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field, ValidationError, model_validator
 from datetime import datetime
 from json import load
 
@@ -87,8 +87,8 @@ def main() -> None:
                             f"- {member.name} ({member.rank}) - "
                             f"{member.specialization}"
                         )
-                except Exception as err:
-                    print(err)
+                except ValidationError as err:
+                    print(err.errors()[0]["msg"])
     except Exception as err:
         print(err)
 
