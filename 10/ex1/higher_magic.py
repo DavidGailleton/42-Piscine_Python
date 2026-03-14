@@ -44,6 +44,10 @@ def pow_2(nb: int) -> int:
     return nb * nb
 
 
+def spell_transformer(spell: str) -> str:
+    return "* " + spell + " *"
+
+
 def main() -> None:
     try:
         print("=== spell_combiner ===")
@@ -60,7 +64,15 @@ def main() -> None:
         print(f"Invalid: {caster(2, str)}")
 
         print("\n=== spell_sequence ===")
-        sequencer = spell_sequence([fireball, heal, isinstance])
+        sequencer = spell_sequence(
+            [
+                fireball,
+                heal,
+                spell_transformer,
+            ]
+        )
+        print(f"Sequence result: {sequencer('dragon')}")
+
     except Exception as err:
         print(err)
 
