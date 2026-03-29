@@ -1,22 +1,22 @@
-from typing import Callable
+from typing import Any, Callable
 
 
 def spell_combiner(spell1: Callable, spell2: Callable) -> Callable:
-    def combiner(*args):
+    def combiner(*args: Any) -> tuple[Any, Any]:
         return (spell1(*args), spell2(*args))
 
     return combiner
 
 
 def power_amplifier(base_spell: Callable, multiplier: int) -> Callable:
-    def multiplie(*args):
+    def multiply(*args: Any) -> Any:
         return base_spell(*args) * multiplier
 
-    return multiplie
+    return multiply
 
 
 def conditional_caster(condition: Callable, spell: Callable) -> Callable:
-    def cond_res(*args, **kwargs):
+    def cond_res(*args: Any, **kwargs: Any) -> Any:
         if condition(*args, **kwargs):
             return spell(args[0])
         else:
@@ -26,7 +26,7 @@ def conditional_caster(condition: Callable, spell: Callable) -> Callable:
 
 
 def spell_sequence(spells: list[Callable]) -> Callable:
-    def sequence(*args, **kwargs):
+    def sequence(*args: Any, **kwargs: Any) -> list[Any]:
         return [res(*args, **kwargs) for res in spells]
 
     return sequence
@@ -56,7 +56,7 @@ def main() -> None:
 
         print("\n=== power_amplifier ===")
         amplifier = power_amplifier(pow_2, 4)
-        print(f"multiplie 5 pow_2 by 4: {amplifier(5)}")
+        print(f"multiply 5 pow_2 by 4: {amplifier(5)}")
 
         print("\n=== conditional_caster ===")
         caster = conditional_caster(isinstance, fireball)

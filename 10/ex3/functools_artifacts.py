@@ -1,6 +1,5 @@
 from functools import lru_cache, reduce, partial, singledispatch
 import operator as op
-import re
 from typing import Callable, Any
 
 
@@ -27,6 +26,7 @@ def partial_enchanter(base_enchantment: Callable) -> dict[str, Callable]:
     }
 
 
+@lru_cache
 def memoized_fibonacci(n: int) -> int:
     if n < 2:
         return n
@@ -35,7 +35,7 @@ def memoized_fibonacci(n: int) -> int:
 
 def spell_dispatcher() -> Callable:
     @singledispatch
-    def basic(arg: Any) -> str:
+    def basic(arg: Any) -> Any:
         return arg
 
     @basic.register(int)
@@ -47,7 +47,7 @@ def spell_dispatcher() -> Callable:
         return f"apply {arg}"
 
     @basic.register(list)
-    def basic_list(arg: list) -> str:
+    def basic_list(arg: list[Any]) -> str:
         res = ""
         for cast in arg:
             res += f"cast {cast}\n"

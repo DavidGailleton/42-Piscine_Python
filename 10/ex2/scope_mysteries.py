@@ -34,7 +34,6 @@ def memory_vault() -> dict[str, Callable]:
     storage = {}
 
     def store(to_store: dict[str, str]) -> None:
-        nonlocal storage
         for data in to_store:
             storage[data] = to_store[data]
 
@@ -47,7 +46,7 @@ def memory_vault() -> dict[str, Callable]:
     return {"store": store, "recall": recall}
 
 
-def main():
+def main() -> None:
     print("===mage_counter===\n")
     count = mage_counter()
     print(f"1 : {count()}")
